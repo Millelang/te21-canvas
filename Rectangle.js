@@ -1,5 +1,7 @@
 
 
+
+
 export default class Rectangle {
     constructor(x, y, width, height, color, speed) {
         this.x = x
@@ -11,6 +13,8 @@ export default class Rectangle {
         this.color = color
         this.hp = 3
     }
+
+   
 
    intersect(rectangle) {
         return (this.x < rectangle.x + rectangle.width &&

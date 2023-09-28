@@ -19,6 +19,10 @@ export function setup(element) {
     color.push('orange')
     color.push('purple')
     color.push('pink')
+    var nomnom = new Audio('nomnom.mp3')
+
+    let yumyum = document.querySelector('#yumyum')
+    console.log(yumyum)
 
     canvas.addEventListener('click', (event) => {
         console.log("click")
@@ -29,16 +33,28 @@ export function setup(element) {
 
 
     function step() {
+        document.addEventListener('keypress', (event) => {
+            if (event.key == 'ArrowUp') {
+                player.y -= 10
+            }
+            if (event.key == 'ArrowDown') {
+                player.y += 10
+            }
+        })
         context.clearRect(0, 0, width, height)
         player.update(canvas)
         player.draw(context)
+        context.drawImage(yumyum, player.x, player.y, 200, 200)
         rectangles.forEach((rectangle) => {
             if (player.intersect(rectangle)) {
                 console.log("intersect")
-                rectangle.speed = -rectangle.speed
-                rectangle.speedy = -rectangle.speedy
+                rectangle.speed = -rectangle.speed 
+                rectangle.speedy = -rectangle.speedy 
                 player.speed = -player.speed
                 rectangle.hp -= 1
+                
+                nomnom.play()
+                rectangle.color = color[Math.floor(Math.random() * color.length)]
                 if (rectangle.hp == 0) {
                     rectangles.splice(rectangles.indexOf(rectangle), 1)
                 }
