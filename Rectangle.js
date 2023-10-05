@@ -3,7 +3,7 @@
 
 
 export default class Rectangle {
-    constructor(x, y, width, height, color, speed) {
+    constructor(x, y, width, height, color, speed, trail) {
         this.x = x
         this.y = y
         this.speed = speed
@@ -12,7 +12,11 @@ export default class Rectangle {
         this.height = height
         this.color = color
         this.hp = 3
+        
+        
     }
+
+    
 
    
 
@@ -44,4 +48,5 @@ export default class Rectangle {
         context.fillStyle = this.color
         context.fillRect(this.x, this.y, this.width, this.height)
     }
+    
 }

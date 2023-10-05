@@ -1,6 +1,10 @@
 import Rectangle from './Rectangle.js'
 
-export function setup(element) {
+export function setup(element3) {
+
+    
+
+    
     const width = 1200
     const height = 900
     const canvas = document.querySelector('#test')
@@ -10,7 +14,8 @@ export function setup(element) {
     let rectangles = []
     let random = 0
     let random2 = 0
-    let player = new Rectangle(1, 0, 200, 200, 'red', 5)
+    let player = new Rectangle(1, 0, 200, 200, 'red', 5,true)
+    let trails = []
     let color = []
     color.push('red')
     color.push('blue')
@@ -24,6 +29,11 @@ export function setup(element) {
     let yumyum = document.querySelector('#yumyum')
     console.log(yumyum)
 
+//while (width == 1200) {
+   // random = Math.floor(Math.random() * color.length)
+  //  trails.push(new Rectangle(player.x, player.y, 200, 200, color[random], player.speed,true))
+//}
+
     canvas.addEventListener('click', (event) => {
         console.log("click")
         random = Math.floor(Math.random() * color.length)
@@ -33,6 +43,10 @@ export function setup(element) {
 
 
     function step() {
+        let x44 = 0
+        for(x44=0;x44<60;x++) {
+
+        }
         document.addEventListener('keypress', (event) => {
             if (event.key == 'ArrowUp') {
                 player.y -= 10
